@@ -18,7 +18,7 @@ class Cornfield extends Component {
             'You stand in a cornfield',
             'The sun is directly above you in a cloudless sky',
             'Blood drips from your injured leg, and the corn is almost twice your height',
-            'The only sound is the wind blowing through the corn FUCKIN YOLO M8'
+            'The only sound is the wind blowing through the corn'
         ],
         options: [
             {text: 'Start walking', onPress: () => this.props.dispatch(updateCurrentLocation('CornfieldWalking'))},
