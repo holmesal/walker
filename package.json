@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start"
+    "start": "react-native start",
+    "build": "react-native bundle --dev --entry-file=index.ios.js --bundle-output=ios/main.jsbundle"
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.3.13",

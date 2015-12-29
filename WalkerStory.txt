@@ -1,0 +1,82 @@
+Walker---
+
+Cornfield:
+	Context:
+		-You stand in a cornfield
+		-The sun is directly above you in a cloudless sky
+		-Blood drips from your injured leg, and the corn is almost twice your height
+		-The only sound is the wind blowing through the corn
+		-(BandageLeg) You tear a strip from your shirt 
+		-(BandageLeg) You use it to hastily bandage your leg
+		-(BandageLeg) It looks pretty hardcore
+		-(BandageLeg) You feel like Bear Grylls
+	Options:
+		-Yell for help
+		    - yelledHelp = T
+		-Bandage leg
+			- isBandaged = T
+		-Self pity
+			- selfPitied = T
+		-Start walking
+			-Transition to CornfieldWalking
+CornfieldWalking:
+	Context:
+		-You've been walking for what feels like hours
+		-The sun is bright, and the air is [1]{chilly} [2]{warm}
+		-Your arms are covered with scratches from the sharp leaves
+		-The corn is still too high to see over
+		-(isBandaged=T) The bandage is not ideal, but it has slowed the bleeding
+		-(isBandaged=T) You hope to find medical supplies soon
+		-(isBandaged=F) You've lost alot of blood
+		-(isBandaged=F) You feel weak and sad
+		-(isBandaged=F) You don't want to die
+		-You look to the heavens for help
+		-The sun has moved
+		-This is good
+		-You brilliantly deduce that you are walking West
+		-(adjustedBandage=T)You try to improve your bandage, but you end up making it worse
+		-(adjustedBandage=T)You start bleeding again
+		-(adjustedBandage=T)You feel discouraged
+		-(bandageLate=T)You try to bandage your blood-covered leg
+		-(bandageLate=T)It seems to slow the bleeding
+		-(bandageLate=T)But you fear you have lost too much blood already
+	Options:
+		-(isBandaged=T) Adjust bandage
+		-(isBandaged=F) Bandage leg
+			-bandageLate = T
+		-Keep walking West
+			-(isBandaged=T) Transition to CornfieldWest
+			-(bandagedLate=T) Transition to CornfieldSubWest
+			-(isBandaged=F) Transition to CornfieldSubWest
+			-
+		-Rest
+			-restedFirst = T
+			-lazy = T
+CornfieldSubWest:
+	Context:
+		-(bandageLate=T) The bandage has failed
+		-You stagger through the field, every step a challenge
+		-Every step more futile than the last
+		-Your leg is caked with blood, both dry and wet
+		-You wonder if this is it
+		-Blood is flowing freely down your leg
+
+		-You're having trouble walking
+		-You stop walking
+		-You're having trouble standing
+		-You fall
+		-You're having trouble keeping your eyes open
+		-You close them
+	Options:
+		-choice
+CornfieldWest:
+	Context:
+		-text
+	Options:
+		-choice
+
+
+
+
+
+
