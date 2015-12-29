@@ -2,6 +2,7 @@ import React, {Component, StyleSheet, Text, View} from 'react-native';
 
 import Storyline from './../Storyline';
 import Location from './Location';
+import Cornfield from './locations/Cornfield';
 
 import {game$} from '../selectors/game';
 import {connect} from 'react-redux/native';
@@ -22,14 +23,8 @@ class Game extends Component {
     }
 
     render() {
-        console.info(this.props.currentLocation, Storyline);
-        let location = Storyline[this.props.currentLocation]();
-        console.info(location);
         return (
-            <Location
-                location={location}
-                optionPicked={this.optionPicked.bind(this)}
-            />
+            <Cornfield />
         );
     }
 }

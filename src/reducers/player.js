@@ -3,7 +3,7 @@ import Immutable from 'immutable';
 import {UPDATE_PLAYER} from '../actions/player';
 
 const initialState = Immutable.fromJS({
-    isBandaged: false
+    bandaged: false
 });
 
 export default createReducer(initialState, {

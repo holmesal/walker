@@ -9,3 +9,7 @@ export const game$ = createSelector(currentLocation$, player$, (currentLocation,
         player: player.toJS()
     }
 });
+
+export const location$ = createSelector(player$, (player) => ({
+    player: player.toJS()
+}));
